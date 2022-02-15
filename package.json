@@ -1,0 +1,24 @@
+{
+  "name": "truepill",
+  "version": "1.0.0",
+  "description": "Truepill take home test",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.5.5"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "tangarts",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.3.2",
+    "jest": "^27.5.1",
+    "jest-cucumber": "^3.0.1"
+  },
+  "jest": {
+    "testMatch": [
+      "**/steps/*"
+    ]
+  }
+}
