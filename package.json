@@ -2,18 +2,23 @@
   "name": "truepill",
   "version": "1.0.0",
   "description": "Truepill take home test",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
     "typescript": "^4.5.5"
   },
   "scripts": {
-    "test": "jest"
+    "build": "tsc",
+    "jest": "jest --verbose",
+    "test": "npm run build & npm run lint & jest --color",
+    "update-snapshots": "jest --updateSnapshot",
+    "lint": "tslint --project ./"
   },
   "author": "tangarts",
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^7.3.2",
     "jest": "^27.5.1",
+    "tslint": "^5.10.0",
     "jest-cucumber": "^3.0.1"
   },
   "jest": {
