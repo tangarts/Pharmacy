@@ -1,6 +1,8 @@
 # Pharmacy Stock Kata
 
-This repo contains my solution to the Truepill pharmacy kata.
+This repo contains starter code to build an pharmacy inventory management system. 
+
+See the [features folder](./tests/features/) for a list of features implemented.
 
 ## Installation
 
@@ -19,4 +21,4 @@ $ npm run exec
 
 ## Tests and Specification
 
-With a real application, I might start with tests first. The `tests` folder contains cucumber specifications to encapsulate the user stories and requirements.
+With a real application, I might start with tests first. The `tests/` folder contains cucumber specifications to encapsulate the user stories and requirements.
