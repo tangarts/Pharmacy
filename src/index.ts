@@ -2,7 +2,7 @@
 
 import { Formulary } from "./Formulary";
 import { Inventory } from "./Inventory";
-import { Order } from "./models";
+import { Order } from "./types";
 
 let formulary = new Formulary();
 
@@ -23,4 +23,3 @@ inventory.addMedication({ name: "Simvastatin", strength: 10, packSize: 10 }, 10)
 inventory.addMedication({ name: "Warfarin", strength: 3, packSize: 50 }, 5);
 
 console.log(inventory.listMedication());
-inventory.print();

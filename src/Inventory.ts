@@ -1,5 +1,5 @@
 import { Formulary } from "./Formulary";
-import { Pack, Order } from "./models";
+import { Pack, Order } from "./types";
 
 export class Inventory {
     formulary: Formulary;
@@ -13,8 +13,8 @@ export class Inventory {
     addMedication(medication: Pack, quantity: number): boolean {
         let name = medication.name;
         if (this.formulary.list.has(name)) {
-            // increase quantity
-            this.stock.set(name, { medication: medication, quantity: quantity });
+            let id = `${medication.name}-${medication.strength}-${medication.packSize}`
+            this.stock.set(id, { medication: medication, quantity: quantity });
             return true;
         }
         //throw new Error(`medication ${name} not present in the formulary.`);
@@ -24,18 +24,14 @@ export class Inventory {
     }
 
     listMedication(): Order[] {
-        return [...this.stock.values()];
+        return Array.from(this.stock.values());
     }
-    print(): void {
-        console.log("| name | strength | size | total |");
-        this.stock.forEach((order: Order, _: string) => {
-            console.log(`| ${order.medication.name} | ${order.medication.strength} | ${order.medication.packSize} | ${order.quantity} |`);
-        });
-    }
-    getMedication(name: string): Order {
-        if (this.stock.has(name)) {
-            return this.stock.get(name);
+
+    getMedication(id: string): Order {
+        if (this.stock.has(id)) {
+            return this.stock.get(id);
         }
-        throw new Error(`Medication ${name} does not exist in the stock`);
+        // throw new Error(`Medication ${id} does not exist in the stock`);
+        console.error(`Medication ${id} does not exist in the stock`);
     }
 }

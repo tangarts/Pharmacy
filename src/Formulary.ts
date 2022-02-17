@@ -6,10 +6,6 @@ export class Formulary {
     };
 
     print(): void {
-        console.log();
-        this.list.forEach(drug => {
-            console.log(drug);
-        });
+        console.table(this.list);
     }
-}
-;
+};
