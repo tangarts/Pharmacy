@@ -5,19 +5,35 @@ Feature: Medication available in the pharmacy
 
     # Assumptions
     # 1. The name of a medication acts as its unique identifier
-    # 2. Medication cannot be added to the formulary more than once
 
     Scenario: Ability to add the name of a medication to the formulary
+        Given the formulary is empty
+        When I try to add medication with the name of "Amoxicillin" to the formulary
+        Then the inventory should not be empty
+        And medication with the name of "Amoxicillin" should be in the formulary
+
+    Scenario: Medication cannot be added to the formulary more than once
+        Given "Amoxicillin" is present in the formulary
+        When I try to add medication with the name of "Amoxicillin" to the formulary
+        Then the formulary should contain one instance of "Amoxicillin"
 
     Scenario: Ability to return a list of medication names in the formulary
-
-
-        Examples:
-            | Name        | Strength | Size |
-            | Amoxicillin | 250mg    | 20   |
-            | Codeine     | 30mg     | 10   |
-            | Diclofenac  | 250mg    | 25   |
-            | Ibuprofen   | 500mg    | 50   |
-            | Paracetamol | 500mg    | 50   |
-            | Simvastatin | 10mg     | 10   |
-            | Tramadol    | 50mg     | 100  |
+        Given I have a list of medications to add to the formulary:
+            | Name        |
+            | Codeine     |
+            | Diclofenac  |
+            | Ibuprofen   |
+            | Paracetamol |
+            | Simvastatin |
+            | Tramadol    |
+            | Warfarin    |
+        When I ask for the list of medication names in the formulary
+        Then I should get back the list of medication names:
+            | Name        |
+            | Codeine     |
+            | Diclofenac  |
+            | Ibuprofen   |
+            | Paracetamol |
+            | Simvastatin |
+            | Tramadol    |
+            | Warfarin    |
