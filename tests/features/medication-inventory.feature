@@ -10,11 +10,6 @@ Feature: Medication Inventory
         When I try to add "Tramadol" to the stock
         Then I should get an error
 
-    Scenario: All medications are tablets and stocked in packs of the same strength
-        Given I have a pack of medication
-        Then the medication are tablets
-        And the medication in packs have the same strength
-
     # Acceptance Criteria
     Scenario: Ability to add packs for medications already in the formulary list
         Given the medication "Tramadol" is present in the formulary
