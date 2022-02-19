@@ -2,7 +2,7 @@
 
 This repo contains starter code to build an pharmacy inventory management system. 
 
-See the [features folder](./tests/features/) for a list of features implemented.
+See the [features folder](./test/features/) for a list of features implemented.
 
 ## Installation
 
@@ -21,4 +21,4 @@ $ npm run exec
 
 ## Tests and Specification
 
-With a real application, I might start with tests first. The `tests/` folder contains cucumber specifications to encapsulate the user stories and requirements.
+With a real application, I might start with tests first. The `test/` folder contains cucumber specifications to encapsulate the user stories and requirements.
